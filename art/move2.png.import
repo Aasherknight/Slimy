@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SlimyIcon.png-897d080f0eaf7103c0b1ebff94374c1a.stex"
+path="res://.import/move2.png-b4cfc8255eb223dca31bdcc0f849f1a6.stex"
 
 [deps]
 
-source_file="res://SlimyIcon.png"
-dest_files=[ "res://.import/SlimyIcon.png-897d080f0eaf7103c0b1ebff94374c1a.stex" ]
+source_file="res://art/move2.png"
+dest_files=[ "res://.import/move2.png-b4cfc8255eb223dca31bdcc0f849f1a6.stex" ]
 
 [params]
 
