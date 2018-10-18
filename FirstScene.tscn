@@ -4,9 +4,9 @@
 [ext_resource path="res://art/move1.png" type="Texture" id=2]
 [ext_resource path="res://art/move2.png" type="Texture" id=3]
 [ext_resource path="res://art/slimey.png" type="Texture" id=4]
-[ext_resource path="res://art/jump1.png" type="Texture" id=5]
-[ext_resource path="res://art/jump3.png" type="Texture" id=6]
-[ext_resource path="res://art/jump2.png" type="Texture" id=7]
+[ext_resource path="res://art/jump3.png" type="Texture" id=5]
+[ext_resource path="res://art/jump2.png" type="Texture" id=6]
+[ext_resource path="res://art/smooshedslimy.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -23,17 +23,17 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "start_jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
 "name": "jumping",
 "speed": 2.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "start_jump",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -58,7 +58,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -76,6 +76,8 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 0.0356274, 0.151819 )
 scale = Vector2( 0.96292, 0.791863 )
 shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
 
 
