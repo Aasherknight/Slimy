@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Node.gd" type="Script" id=1]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1020.97, 0, 0, 0, 0, 0, 1020.97, 601.206, 0, 0, 0, 0, 1020.97, 601.206, 0, 0, 0, 0, 0, 601.206, 0, 0, 0, 0, 0, 0 )
+}
+
+[node name="Node" type="Node" index="0"]
+
+script = ExtResource( 1 )
+Mob = null
+
+[node name="mobTimer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+[node name="startTimer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="scoreTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="startPosition" type="Position2D" parent="." index="3"]
+
+position = Vector2( 240, 450 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Path2D" type="Path2D" parent="." index="4"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+scale = Vector2( 0.999046, 0.997994 )
+curve = SubResource( 1 )
+
+

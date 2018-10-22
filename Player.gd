@@ -4,10 +4,13 @@ export (int) var speed # how fast the player will move (pixels/sec)
 var screensize # size of the game window
 var velocity = Vector2(0,0) #player's movement vector.
 
+#Spawn point
+var spawn = Vector2( 5, 5)
+
 #Jumping variables
 var falling = false
-var screen_bot = 590
 var jumping = false
+var screen_bot = 590
 
 #collision detection
 signal hit
@@ -72,4 +75,8 @@ func _process(delta):
 	position += velocity
 	position.x = clamp(position.x, 0, screensize.x)
 	position.y = clamp(position.y, 0, screen_bot)
+	
+func _on_Player_body_entered(body):
+	player.position = spawn
+	emit_signal("hit")
 	

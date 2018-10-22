@@ -11,5 +11,5 @@ config_version=3
 [application]
 
 config/name="Slimy"
-run/main_scene="res://FirstScene.tscn"
+run/main_scene="res://mobs.tscn"
 config/icon="res://icon.png"
