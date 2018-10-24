@@ -4,34 +4,35 @@ export (PackedScene) var Mob
 var score
 
 func _ready():
-    randomize()
+	randomize()
+	new_game()
 	
 func game_over():
-    $ScoreTimer.stop()
-    $MobTimer.stop()
+	$scoreTimer.stop()
+	$mobTimer.stop()
 
 func new_game():
-    score = 0
-    $Player.start($StartPosition.position)
-    $StartTimer.start()
-	
-func _on_StartTimer_timeout():
-    $MobTimer.start()
-    $ScoreTimer.start()
+	score = 0
+	$Player.start($startPosition.position)
+	$startTimer.start()
 
-func _on_ScoreTimer_timeout():
+func _on_startTimer_timeout():
+    $mobTimer.start()
+    $scoreTimer.start()
+
+func _on_scoreTimer_timeout():
     score += 1
 
-func _on_MobTimer_timeout():
+func _on_mobTimer_timeout():
     # Choose a random location on Path2D.
-    $MobPath/MobSpawnLocation.set_offset(randi())
+    $mobPath/mobSpawn.set_offset(randi())
     # Create a Mob instance and add it to the scene.
     var mob = Mob.instance()
     add_child(mob)
     # Set the mob's direction perpendicular to the path direction.
-    var direction = $MobPath/MobSpawnLocation.rotation + PI / 2
+    var direction = $mobPath/mobSpawn.rotation + PI / 2
     # Set the mob's position to a random location.
-    mob.position = $MobPath/MobSpawnLocation.position
+    mob.position = $mobPath/mobSpawn.position
     # Add some randomness to the direction.
     direction += rand_range(-PI / 4, PI / 4)
     mob.rotation = direction

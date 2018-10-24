@@ -4,8 +4,8 @@
 [ext_resource path="res://art/move1.png" type="Texture" id=2]
 [ext_resource path="res://art/move2.png" type="Texture" id=3]
 [ext_resource path="res://art/slimey.png" type="Texture" id=4]
-[ext_resource path="res://art/fall1.png" type="Texture" id=5]
-[ext_resource path="res://art/jump3.png" type="Texture" id=6]
+[ext_resource path="res://art/jump3.png" type="Texture" id=5]
+[ext_resource path="res://art/fall1.png" type="Texture" id=6]
 [ext_resource path="res://art/smooshedslimy.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -23,13 +23,13 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "falling",
-"speed": 5.0
+"name": "jumping",
+"speed": 2.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "jumping",
-"speed": 2.0
+"name": "falling",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
@@ -46,7 +46,7 @@ _sections_unfolded = [ "Resource" ]
 
 [node name="Player" type="Area2D"]
 
-position = Vector2( 15.3963, 590 )
+position = Vector2( 0, 590 )
 scale = Vector2( 2.40704, 2.40704 )
 input_pickable = true
 space_override = 3
@@ -73,6 +73,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+visible = false
 position = Vector2( 0.0356274, 0.151819 )
 scale = Vector2( 0.96292, 0.791863 )
 shape = SubResource( 2 )

@@ -7,12 +7,17 @@ var velocity = Vector2(0,0) #player's movement vector.
 #Spawn point
 var spawn = Vector2( 5, 5)
 
-#Jumping variables
+#Movement variables
 var falling = false
 var jumping = false
 var screen_bot = 590
+var jumpPower = 9
+var movSpeed = 1
+var maxMovSpeed = 9
+var friction = 0.5
+var grav = 0.25
 
-#collision detection
+#collision details
 signal hit
 
 func _ready():
@@ -23,20 +28,20 @@ func _process(delta):
 	
 	#Move right, and if we aren't jumping/falling play the animation
 	if Input.is_action_pressed("ui_right"):
-		velocity.x = clamp(velocity.x+1, 0, 9)
+		velocity.x = clamp(velocity.x+movSpeed, 0, maxMovSpeed)
 		if (falling == false && jumping == false):
 			$AnimatedSprite.animation = "right"
 			$AnimatedSprite.set_flip_h(false)
 	#Move left, and if we aren't jumping/falling play the animation
 	if Input.is_action_pressed("ui_left"):
-		velocity.x = clamp(velocity.x-1, -9, 0)
+		velocity.x = clamp(velocity.x-movSpeed, -maxMovSpeed, 0)
 		if (falling == false && jumping == false):
 			$AnimatedSprite.animation = "right"
 			$AnimatedSprite.set_flip_h(true)
 	#If we aren't already jumping/falling, start the jump & animation
 	if Input.is_action_pressed("ui_up"):
 		if(falling == false && jumping == false):
-			velocity.y -= 9
+			velocity.y -= jumpPower
 			jumping = true
 			$AnimatedSprite.animation = "jumping"
 	#If we aren't jumping/falling, crouch down
@@ -54,13 +59,13 @@ func _process(delta):
 	
 	#If we are no longer moving right, apply friction to stop moving
 	if(velocity.x > 0 && (falling == false && jumping == false)):
-		velocity.x -= 0.5
+		velocity.x -= friction
 	#If we are no longer moving left, apply friction to stop moving
 	if(velocity.x < 0 && (falling == false && jumping == false)):
-		velocity.x += 0.5
+		velocity.x += friction
 	#If we are in the air, apply gravity
 	if(velocity.y <12 && (jumping || falling)):
-		velocity.y += 0.25
+		velocity.y += grav
 		#If we have stopped rising, we have started falling
 		if(velocity.y >= 0):
 			falling = true
@@ -77,6 +82,9 @@ func _process(delta):
 	position.y = clamp(position.y, 0, screen_bot)
 	
 func _on_Player_body_entered(body):
-	player.position = spawn
+	position = spawn
 	emit_signal("hit")
-	
+
+func start(pos):
+	position = pos
+	show()
