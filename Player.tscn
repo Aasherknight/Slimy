@@ -44,7 +44,7 @@ custom_solver_bias = 0.0
 points = PoolVector2Array( 5, -2.75, 3.25, -5.5, 0, -7.5, -3.75, -5.5, -5.5, -2.75, -6.5, 3.5, -4, 5, 4, 5, 5.5, 3.5 )
 _sections_unfolded = [ "Resource" ]
 
-[node name="Player" type="Area2D" index="0"]
+[node name="Player" type="Area2D"]
 
 position = Vector2( 0, 590 )
 scale = Vector2( 2.40704, 2.40704 )
