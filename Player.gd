@@ -17,6 +17,12 @@ var maxMovSpeed = 9
 var friction = 0.5
 var grav = 0.25
 
+#Collectables
+var red = true #determines if a Character has collected a Red Jelly and is able to eat enemies
+var redTimer = 10.0 #The time left remaining on the red mode
+var jellyCollected = 0 #Integer, the number of Jelly that the player currently has collected
+
+
 #collision details
 signal hit
 
@@ -76,14 +82,26 @@ func _process(delta):
 		falling = false
 		velocity.y = 0
 	
+	#check the timer on the Red Jelly
+	if(redTimer > 0):
+		red = true
+		$AnimatedSprite.modulate = Color(1.5,0,0)
+		redTimer = clamp(redTimer-delta,0.0,999.0)
+	if(redTimer==0):
+		red = false
+		$AnimatedSprite.modulate = Color(1,1,1)
+	
 	#Update player position with the current velocity
 	position += velocity
 	position.x = clamp(position.x, 0, screensize.x)
 	position.y = clamp(position.y, 0, screen_bot)
 	
 func _on_Player_body_entered(body):
-	position = spawn
-	emit_signal("hit")
+	if !red:
+		position = spawn
+		emit_signal("hit")
+	else:
+		emit_signal("eat")
 
 func start(pos):
 	position = pos

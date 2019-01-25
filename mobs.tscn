@@ -1,55 +1,55 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://mobs.gd" type="Script" id=1]
-[ext_resource path="res://art/skelly_stand.png" type="Texture" id=2]
-[ext_resource path="res://art/bat_land.png" type="Texture" id=3]
-[ext_resource path="res://art/skelly_walk1.png" type="Texture" id=4]
-[ext_resource path="res://art/skelly_walk2.png" type="Texture" id=5]
-[ext_resource path="res://art/imp_walk1.png" type="Texture" id=6]
-[ext_resource path="res://art/imp_walk2.png" type="Texture" id=7]
-[ext_resource path="res://art/imp_walk3.png" type="Texture" id=8]
-[ext_resource path="res://art/imp_walk4.png" type="Texture" id=9]
-[ext_resource path="res://art/imp_stand.png" type="Texture" id=10]
-[ext_resource path="res://art/bat_flap.png" type="Texture" id=11]
-[ext_resource path="res://art/bat_flap2.png" type="Texture" id=12]
-[ext_resource path="res://art/bat_flap3.png" type="Texture" id=13]
+[ext_resource path="res://art/bat_land.png" type="Texture" id=2]
+[ext_resource path="res://art/skelly_walk1.png" type="Texture" id=3]
+[ext_resource path="res://art/skelly_walk2.png" type="Texture" id=4]
+[ext_resource path="res://art/imp_walk1.png" type="Texture" id=5]
+[ext_resource path="res://art/imp_walk2.png" type="Texture" id=6]
+[ext_resource path="res://art/imp_walk3.png" type="Texture" id=7]
+[ext_resource path="res://art/imp_walk4.png" type="Texture" id=8]
+[ext_resource path="res://art/imp_stand.png" type="Texture" id=9]
+[ext_resource path="res://art/bat_flap.png" type="Texture" id=10]
+[ext_resource path="res://art/bat_flap2.png" type="Texture" id=11]
+[ext_resource path="res://art/bat_flap3.png" type="Texture" id=12]
+[ext_resource path="res://art/skelly_stand.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "skelly_resting",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
 "name": "bat_resting",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "skelly_moving",
 "speed": 1.5
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "imp_moving",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "imp_resting",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "bat_moving",
 "speed": 9.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "skelly_resting",
+"speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 10.0
@@ -65,7 +65,7 @@ points = PoolVector2Array( -10, -18, 2, -18, 10, -2, 10, 18, -8, 18 )
 custom_solver_bias = 0.0
 points = PoolVector2Array( -10, -16, 4, -16, 12, 4, 12, 30, 6, 30, 4, 50, -6, 50, -8, 30, -14, 30, -14, 4 )
 
-[node name="RigidBody2D" type="RigidBody2D" index="0"]
+[node name="RigidBody2D" type="RigidBody2D"]
 
 position = Vector2( 126.864, 115.557 )
 input_pickable = false
@@ -102,7 +102,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0.14599, -3.56623 )
 scale = Vector2( 0.718742, 0.653801 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="impCollision" type="CollisionShape2D" parent="." index="2"]
