@@ -13,7 +13,6 @@ var plattype #tracks what platform this object is
 
 func _ready():
 	plattype = randi() % platform_types.size()
-	print(plattype)
 	$AnimatedSprite.animation = plat_types[plattype]
 	if(platform_types[plattype] != "hazard"):
 		$platformCollision.disabled = false

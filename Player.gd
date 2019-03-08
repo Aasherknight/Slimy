@@ -8,7 +8,7 @@ var velocity = Vector2(0,0) #player's movement vector.
 var spawn = Vector2( 5, 5)
 
 #Movement variables
-var falling = false
+var falling = true
 var jumping = false
 var screen_bot = 590
 var jumpPower = 9
@@ -18,8 +18,9 @@ var friction = 0.5
 var grav = 0.25
 
 #Collectables
-var red = true #determines if a Character has collected a Red Jelly and is able to eat enemies
-var redTimer = 10.0 #The time left remaining on the red mode
+var red = false #determines if a Character has collected a Red Jelly and is able to eat enemies
+var redTimer = 0 #The time left remaining on the red mode
+var maxRedTime = 10.0
 var jellyCollected = 0 #Integer, the number of Jelly that the player currently has collected
 
 
@@ -97,12 +98,12 @@ func _process(delta):
 	position.y = clamp(position.y, 0, screen_bot)
 	
 func _on_Player_body_entered(body):
-	if !red:
-		position = spawn
-		emit_signal("hit")
-	else:
-		emit_signal("eat")
+	emit_signal("hit")
+
+func respawn():
+	position = spawn
 
 func start(pos):
 	position = pos
+	spawn = pos
 	show()
