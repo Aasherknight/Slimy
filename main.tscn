@@ -2,8 +2,8 @@
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Spikes.tscn" type="PackedScene" id=2]
-[ext_resource path="res://art/pipe.png" type="Texture" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://art/pipe.png" type="Texture" id=4]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -17,58 +17,43 @@ _data = {
 script = ExtResource( 1 )
 Spikes = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
-position = Vector2( 967.844, 53.9764 )
-rotation = 0.785398
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Offset", "Transform" ]
-
-[node name="Sprite2" type="Sprite" parent="." index="1"]
-
-position = Vector2( 521.906, 43.9553 )
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Offset", "Transform" ]
-
-[node name="mobTimer" type="Timer" parent="." index="2"]
+[node name="mobTimer" type="Timer" parent="." index="0"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = false
 autostart = false
 
-[node name="startTimer" type="Timer" parent="." index="3"]
+[node name="startTimer" type="Timer" parent="." index="1"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = true
 autostart = false
 
-[node name="scoreTimer" type="Timer" parent="." index="4"]
+[node name="scoreTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 0.25
 one_shot = false
 autostart = false
 
-[node name="startPosition" type="Position2D" parent="." index="5"]
+[node name="startPosition" type="Position2D" parent="." index="3"]
 
 position = Vector2( 523.552, 70.3864 )
 scale = Vector2( 0.831027, 0.645731 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Pipe1" type="Path2D" parent="." index="6"]
+[node name="Pipe1" type="Path2D" parent="." index="4"]
 
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
-position = Vector2( -14.7329, 16.9606 )
+position = Vector2( -41.4558, 40.3431 )
 scale = Vector2( 0.999046, 0.997994 )
 curve = SubResource( 1 )
 
 [node name="Pipe1Spawn" type="PathFollow2D" parent="Pipe1" index="0"]
 
-position = Vector2( 973.168, 5.12096 )
+position = Vector2( 973.168, 51.98 )
 rotation = 0.799529
 offset = 0.0
 h_offset = 0.0
@@ -79,10 +64,25 @@ loop = true
 lookahead = 4.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="Player" parent="." index="7" instance=ExtResource( 4 )]
+[node name="Player" parent="." index="5" instance=ExtResource( 3 )]
 
-position = Vector2( 524.658, 70.757 )
+position = Vector2( 522.988, 32.3428 )
 scale = Vector2( 2.40474, 2.40221 )
+
+[node name="Sprite" type="Sprite" parent="." index="6"]
+
+position = Vector2( 987.887, 35.6044 )
+rotation = 0.785398
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Sprite2" type="Sprite" parent="." index="7"]
+
+position = Vector2( 521.906, 43.9553 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [connection signal="timeout" from="mobTimer" to="." method="_on_mobTimer_timeout"]
 
