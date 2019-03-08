@@ -23,7 +23,8 @@ var redTimer = 10.0 #The time left remaining on the red mode
 var jellyCollected = 0 #Integer, the number of Jelly that the player currently has collected
 
 
-#collision details
+#Signals
+signal eat_mob
 signal hit
 
 func _ready():
@@ -31,7 +32,7 @@ func _ready():
 
 #Handle button presses
 func _process(delta):
-	
+
 	#Move right, and if we aren't jumping/falling play the animation
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = clamp(velocity.x+movSpeed, 0, maxMovSpeed)
@@ -97,12 +98,16 @@ func _process(delta):
 	position.y = clamp(position.y, 0, screen_bot)
 	
 func _on_Player_body_entered(body):
-	if !red:
-		position = spawn
-		emit_signal("hit")
-	else:
-		emit_signal("eat")
+	falling = false
+	jumping = false
+	velocity.y = 0
 
-func start(pos):
+func spawn(pos):
 	position = pos
 	show()
+
+func _on_Player_mob_entered():
+	if(red):
+		emit_signal("eat_mob")
+	else:
+		emit_signal("hit")
