@@ -4,7 +4,7 @@ export (int) var speed # how fast the player will move (pixels/sec)
 var screensize # size of the game window
 var velocity = Vector2(0,0) #player's movement vector.
 
-const platform = preload("platform.gd")
+const platform = preload("Tiles.gd")
 
 #Spawn point
 var spawn = Vector2( 5, 5)

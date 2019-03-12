@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Tiles.gd" type="Script" id=1]
+[ext_resource path="res://art/platform.png" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+position = Vector2( 102.18, 87.2746 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="platform" type="Sprite" parent="." index="0"]
+
+position = Vector2( -78.1927, -73.3056 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platform" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="platform/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -15.9686, -10.0744, 15.9463, -10.064, 15.9463, 10.2418, -15.9755, 10.2298 )
+
+

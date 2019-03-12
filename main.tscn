@@ -2,10 +2,10 @@
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Spikes.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://art/pipe.png" type="Texture" id=4]
-[ext_resource path="res://platform.tscn" type="PackedScene" id=5]
-[ext_resource path="res://platform.gd" type="Script" id=6]
+[ext_resource path="res://Tiles.res" type="TileSet" id=3]
+[ext_resource path="res://Tiles.gd" type="Script" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://art/pipe.png" type="Texture" id=6]
 
 [node name="Node" type="Node" index="0"]
 
@@ -15,84 +15,93 @@ __meta__ = {
 "_edit_vertical_guides_": [ 1024.41 ]
 }
 Spikes = ExtResource( 2 )
-Platform = null
 
-[node name="mobTimer" type="Timer" parent="." index="0"]
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 458754, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 524291, 1, 0, 524292, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 31785505, 1, 0, 31785506, 1, 0, 31785507, 1, 0, 31785508, 1, 0, 31785509, 1, 0, 31785510, 1, 0, 31851035, 1, 0, 31851036, 1, 0, 31851037, 1, 0, 31851038, 1, 0, 31851039, 1, 0, 31851040, 1, 0, 31851047, 1, 0, 31851048, 1, 0, 31851049, 1, 0, 31851050, 1, 0, 31851051, 1, 0, 31851052, 1, 0, 31916566, 1, 0, 31916567, 1, 0, 31916568, 1, 0, 31916569, 1, 0, 31916570, 1, 0, 31916589, 1, 0, 31916590, 1, 0, 31916591, 1, 0, 31916592, 1, 0, 31916593, 1, 0, 31916594, 1, 0, 31982096, 1, 0, 31982097, 1, 0, 31982098, 1, 0, 31982099, 1, 0, 31982100, 1, 0, 31982101, 1, 0, 31982131, 1, 0, 31982132, 1, 0, 31982133, 1, 0, 31982134, 1, 0, 31982135, 1, 0, 31982136, 1, 0, 32047627, 1, 0, 32047628, 1, 0, 32047629, 1, 0, 32047630, 1, 0, 32047631, 1, 0, 32047673, 1, 0, 32047674, 1, 0, 32047675, 1, 0, 32047676, 1, 0, 32047677, 1, 0, 32047678, 1, 0, 32113158, 1, 0, 32113159, 1, 0, 32113160, 1, 0, 32113161, 1, 0, 32113162, 1, 0, 32113215, 1, 0, 32113216, 1, 0, 32113217, 1, 0, 32113218, 1, 0, 32178688, 1, 0, 32178689, 1, 0, 32178690, 1, 0, 32178691, 1, 0, 32178692, 1, 0, 32178693, 1, 0, 32178755, 1, 0, 32178756, 1, 0, 32178757, 1, 0, 32244219, 1, 0, 32244220, 1, 0, 32244221, 1, 0, 32244222, 1, 0, 32244223, 1, 0, 32244294, 1, 0, 32244295, 1, 0, 32244296, 1, 0, 32309749, 1, 0, 32309750, 1, 0, 32309751, 1, 0, 32309752, 1, 0, 32309753, 1, 0, 32309754, 1, 0, 32309833, 1, 0, 32309834, 1, 0, 32309835, 1, 0, 32375280, 1, 0, 32375281, 1, 0, 32375282, 1, 0, 32375283, 1, 0, 32375284, 1, 0, 32375372, 1, 0, 32375373, 1, 0, 32375374, 1, 0, 32440810, 1, 0, 32440811, 1, 0, 32440812, 1, 0, 32440813, 1, 0, 32440814, 1, 0, 32440815, 1, 0, 32440911, 1, 0, 32440912, 1, 0, 32440913, 1, 0, 32506342, 1, 0, 32506343, 1, 0, 32506344, 1, 0, 32506345, 1, 0, 32506450, 1, 0, 32506451, 1, 0, 32571874, 1, 0, 32571875, 1, 0, 32571876, 1, 0, 32571877, 1, 0, 32571988, 1, 0, 32571989, 1, 0, 32637406, 1, 0, 32637407, 1, 0, 32637408, 1, 0, 32637409, 1, 0, 32637526, 1, 0, 32637527, 1, 0, 32702939, 1, 0, 32702940, 1, 0, 32702941, 1, 0, 32703064, 1, 0, 32703065, 1, 0, 32768471, 1, 0, 32768472, 1, 0, 32768473, 1, 0, 32768474, 1, 0, 32768602, 1, 0, 32834003, 1, 0, 32834004, 1, 0, 32834005, 1, 0, 32834006, 1, 0, 32899535, 1, 0, 32899536, 1, 0, 32899537, 1, 0, 32899538, 1, 0, 32965068, 1, 0, 32965069, 1, 0, 32965070, 1, 0 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Cell", "Visibility" ]
+
+[node name="mobTimer" type="Timer" parent="." index="1"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = false
 autostart = false
 
-[node name="startTimer" type="Timer" parent="." index="1"]
+[node name="startTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = true
 autostart = false
 
-[node name="scoreTimer" type="Timer" parent="." index="2"]
+[node name="scoreTimer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 0.25
 one_shot = false
 autostart = false
 
-[node name="startPosition" type="Position2D" parent="." index="3"]
+[node name="startPosition" type="Position2D" parent="." index="4"]
 
 position = Vector2( 523.552, 70.3864 )
 scale = Vector2( 0.831027, 0.645731 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Player" parent="." index="4" instance=ExtResource( 3 )]
+[node name="Player" parent="." index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 522.085, 32.3428 )
 scale = Vector2( 2.40474, 2.40221 )
 
-[node name="Pipe1" type="Position2D" parent="." index="5"]
+[node name="Pipe1" type="Position2D" parent="." index="6"]
 
 position = Vector2( 968.573, 58.0559 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Pipe2" type="Position2D" parent="." index="6"]
+[node name="Pipe2" type="Position2D" parent="." index="7"]
 
 position = Vector2( 54.7978, 56.4268 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="7"]
+[node name="Sprite" type="Sprite" parent="." index="8"]
 
 position = Vector2( 992.669, 33.258 )
 rotation = 0.785398
 scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="Sprite2" type="Sprite" parent="." index="8"]
+[node name="Sprite2" type="Sprite" parent="." index="9"]
 
 position = Vector2( 521.906, 43.9553 )
 scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="Sprite3" type="Sprite" parent="." index="9"]
+[node name="Sprite3" type="Sprite" parent="." index="10"]
 
 position = Vector2( 33.258, 33.258 )
 rotation = -0.785398
 scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Offset", "Transform" ]
-
-[node name="Platform1" parent="." index="10" instance=ExtResource( 5 )]
-
-position = Vector2( 516.744, 527.535 )
-can_sleep = false
-script = ExtResource( 6 )
-
-[node name="Platform2" parent="." index="11" instance=ExtResource( 5 )]
-
-position = Vector2( 517.158, 589.34 )
-can_sleep = false
-script = ExtResource( 6 )
 
 [connection signal="timeout" from="mobTimer" to="." method="_on_mobTimer_timeout"]
 
