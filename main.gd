@@ -29,7 +29,8 @@ func game_over():
 
 func new_game():
 	$Platform1.make_static()
-	$Platform1.show()
+	$Platform2.make_static()
+	$Platform2.scale.x = 10
 	lives = 3
 	score = 0
 	$Player.start($startPosition.position)

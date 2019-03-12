@@ -79,10 +79,6 @@ func _process(delta):
 			falling = true
 			jumping = false
 			$AnimatedSprite.animation = "falling"
-	#Temporary bottom, needs replaced for when collisions are applied
-	if(falling && position.y == screen_bot):
-		falling = false
-		velocity.y = 0
 	
 	#check the timer on the Red Jelly
 	if(redTimer > 0):
@@ -115,3 +111,7 @@ func start(pos):
 	position = pos
 	spawn = pos
 	show()
+
+func _on_Player_body_exited(body):
+	if(body is platform):
+		falling = true

@@ -19,7 +19,6 @@ extents = Vector2( 16, 16 )
 
 [node name="RigidBody2D" type="RigidBody2D"]
 
-position = Vector2( 99.9369, 59.5727 )
 input_pickable = false
 collision_layer = 5
 collision_mask = 4
@@ -47,6 +46,8 @@ animation = "static"
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="1"]
 
+position = Vector2( 0.0785308, 0 )
+scale = Vector2( 1.58713, 1 )
 rect = Rect2( -10, -10, 20, 20 )
 
 [node name="platformCollision" type="CollisionPolygon2D" parent="." index="2"]
@@ -54,9 +55,11 @@ rect = Rect2( -10, -10, 20, 20 )
 build_mode = 0
 polygon = PoolVector2Array( -16, -10, -16, 10, 16, 10, 16, 2.26219, 16, -10 )
 disabled = true
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="hazardCollision" type="CollisionShape2D" parent="." index="3"]
 
+visible = false
 shape = SubResource( 2 )
 disabled = true
 
