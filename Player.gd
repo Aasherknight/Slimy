@@ -4,6 +4,8 @@ export (int) var speed # how fast the player will move (pixels/sec)
 var screensize # size of the game window
 var velocity = Vector2(0,0) #player's movement vector.
 
+const platform = preload("platform.gd")
+
 #Spawn point
 var spawn = Vector2( 5, 5)
 
@@ -13,7 +15,7 @@ var jumping = false
 var screen_bot = 590
 var jumpPower = 9
 var movSpeed = 1
-var maxMovSpeed = 9
+var maxMovSpeed = 5
 var friction = 0.5
 var grav = 0.25
 
@@ -32,7 +34,6 @@ func _ready():
 
 #Handle button presses
 func _process(delta):
-	
 	#Move right, and if we aren't jumping/falling play the animation
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = clamp(velocity.x+movSpeed, 0, maxMovSpeed)
@@ -98,10 +99,17 @@ func _process(delta):
 	position.y = clamp(position.y, 0, screen_bot)
 	
 func _on_Player_body_entered(body):
-	emit_signal("hit")
+	if(body is platform):
+		falling = false
+		velocity.y = 0
+	else:
+		emit_signal("hit")
 
 func respawn():
 	position = spawn
+	falling = true
+	redTimer = 0
+	jellyCollected = 0
 
 func start(pos):
 	position = pos

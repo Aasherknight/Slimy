@@ -1,6 +1,7 @@
 extends Node
 
 export (PackedScene) var Spikes
+export (PackedScene) var Platform
 var score
 var lives
 
@@ -21,9 +22,14 @@ func game_over():
 			if(child is Spike):
 				child.queue_free()
 	else:
+		for child in get_children():
+			if(child is Spike):
+				child.queue_free()
 		$Player.respawn()
 
 func new_game():
+	$Platform1.make_static()
+	$Platform1.show()
 	lives = 3
 	score = 0
 	$Player.start($startPosition.position)
@@ -36,21 +42,26 @@ func _on_startTimer_timeout():
 
 func _on_scoreTimer_timeout():
 	score += 1
-	if($mobTimer.get_wait_time()>0.05):
+	if(score%10==0):
 		$mobTimer.set_wait_time($mobTimer.get_wait_time()-0.05)
 
 func _on_mobTimer_timeout():
-	# Choose a random location on Path2D.
-	$Pipe1/Pipe1Spawn.set_offset(randi())
 	# Create a Spike instance and add it to the scene.
-	var mob = Spikes.instance()
-	add_child(mob)
-	# Set the mob's direction perpendicular to the path direction.
-	var direction = $Pipe1/Pipe1Spawn.rotation
-	# Set the mob's position to a random location.
-	mob.position = $Pipe1/Pipe1Spawn.position
-	# Add some randomness to the direction.
-	direction += rand_range(-PI / 4, PI / 4)
-	mob.rotation = direction
-	# Choose the velocity.
-	mob.set_axis_velocity(Vector2(rand_range(mob.min_speed, mob.max_speed), 0).rotated(180-direction))
+	var spike = Spikes.instance()
+	add_child(spike)
+	
+	var degrees = 0
+	
+	#select the spawn point
+	match(randi() % 2):
+		0:
+			spike.position = $Pipe1.position
+			degrees = rand_range(15,75)
+		1:
+			spike.position = $Pipe2.position
+			degrees = rand_range(285,345)
+	
+	spike.rotation = (degrees*PI)/180
+	spike.set_axis_velocity(Vector2(0,rand_range(spike.min_speed, spike.max_speed)).rotated((degrees*PI)/180))
+
+	
