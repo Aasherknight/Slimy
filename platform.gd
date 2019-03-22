@@ -10,7 +10,7 @@ var direction #tracks the direction that it is moving if it is a moving platform
 var plattype #tracks what platform this object is
 
 func _ready():
-	pass
+	make_static()
 
 func make_static():
 	$AnimatedSprite.animation = "static"
