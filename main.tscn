@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Spikes.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://art/pipe.png" type="Texture" id=4]
-[ext_resource path="res://platform.tscn" type="PackedScene" id=5]
-[ext_resource path="res://platform.gd" type="Script" id=6]
+[ext_resource path="res://art/jelly.png" type="Texture" id=5]
+[ext_resource path="res://platform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://platform.gd" type="Script" id=7]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -56,265 +57,290 @@ rotation = -0.785398
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 4 )
 
-[node name="Platform1" parent="." instance=ExtResource( 5 )]
+[node name="life1" type="Sprite" parent="."]
+position = Vector2( 226.509, 19.8391 )
+texture = ExtResource( 5 )
+
+[node name="life2" type="Sprite" parent="."]
+position = Vector2( 285.457, 19.8391 )
+texture = ExtResource( 5 )
+
+[node name="life3" type="Sprite" parent="."]
+position = Vector2( 344.404, 19.8391 )
+texture = ExtResource( 5 )
+
+[node name="Platform1" parent="." instance=ExtResource( 6 )]
 position = Vector2( 532.295, 495.531 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform50" parent="." instance=ExtResource( 5 )]
+[node name="Platform50" parent="." instance=ExtResource( 6 )]
 position = Vector2( 919.664, 494.478 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform40" parent="." instance=ExtResource( 5 )]
+[node name="Platform40" parent="." instance=ExtResource( 6 )]
 position = Vector2( 533.348, 335.531 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform52" parent="." instance=ExtResource( 5 )]
+[node name="Platform52" parent="." instance=ExtResource( 6 )]
 position = Vector2( 920.716, 334.478 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform48" parent="." instance=ExtResource( 5 )]
+[node name="Platform48" parent="." instance=ExtResource( 6 )]
 position = Vector2( 167.032, 333.426 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform36" parent="." instance=ExtResource( 5 )]
+[node name="Platform36" parent="." instance=ExtResource( 6 )]
 position = Vector2( 702.822, 435.531 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform44" parent="." instance=ExtResource( 5 )]
+[node name="Platform44" parent="." instance=ExtResource( 6 )]
 position = Vector2( 703.874, 275.531 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform38" parent="." instance=ExtResource( 5 )]
+[node name="Platform38" parent="." instance=ExtResource( 6 )]
 position = Vector2( 362.822, 430.268 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform43" parent="." instance=ExtResource( 5 )]
+[node name="Platform43" parent="." instance=ExtResource( 6 )]
 position = Vector2( 363.874, 270.268 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform47" parent="." instance=ExtResource( 5 )]
+[node name="Platform47" parent="." instance=ExtResource( 6 )]
 position = Vector2( 167.032, 490.268 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform4" parent="." instance=ExtResource( 5 )]
+[node name="Platform4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 499.715, 495.531 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform49" parent="." instance=ExtResource( 5 )]
+[node name="Platform49" parent="." instance=ExtResource( 6 )]
 position = Vector2( 887.083, 494.478 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform39" parent="." instance=ExtResource( 5 )]
+[node name="Platform39" parent="." instance=ExtResource( 6 )]
 position = Vector2( 500.768, 335.531 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform51" parent="." instance=ExtResource( 5 )]
+[node name="Platform51" parent="." instance=ExtResource( 6 )]
 position = Vector2( 888.136, 334.478 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform45" parent="." instance=ExtResource( 5 )]
+[node name="Platform45" parent="." instance=ExtResource( 6 )]
 position = Vector2( 134.452, 333.426 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform35" parent="." instance=ExtResource( 5 )]
+[node name="Platform35" parent="." instance=ExtResource( 6 )]
 position = Vector2( 670.241, 435.531 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform41" parent="." instance=ExtResource( 5 )]
+[node name="Platform41" parent="." instance=ExtResource( 6 )]
 position = Vector2( 671.294, 275.531 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform37" parent="." instance=ExtResource( 5 )]
+[node name="Platform37" parent="." instance=ExtResource( 6 )]
 position = Vector2( 330.241, 430.268 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform42" parent="." instance=ExtResource( 5 )]
+[node name="Platform42" parent="." instance=ExtResource( 6 )]
 position = Vector2( 331.294, 270.268 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform46" parent="." instance=ExtResource( 5 )]
+[node name="Platform46" parent="." instance=ExtResource( 6 )]
 position = Vector2( 134.452, 490.268 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform2" parent="." instance=ExtResource( 5 )]
+[node name="Platform2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 692.947, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform22" parent="." instance=ExtResource( 5 )]
+[node name="Platform22" parent="." instance=ExtResource( 6 )]
 position = Vector2( 165.662, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform11" parent="." instance=ExtResource( 5 )]
+[node name="Platform11" parent="." instance=ExtResource( 6 )]
 position = Vector2( 956.847, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform34" parent="." instance=ExtResource( 5 )]
+[node name="Platform34" parent="." instance=ExtResource( 6 )]
 position = Vector2( 429.562, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform7" parent="." instance=ExtResource( 5 )]
+[node name="Platform7" parent="." instance=ExtResource( 6 )]
 position = Vector2( 561.812, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform30" parent="." instance=ExtResource( 5 )]
+[node name="Platform30" parent="." instance=ExtResource( 6 )]
 position = Vector2( 34.5264, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform15" parent="." instance=ExtResource( 5 )]
+[node name="Platform15" parent="." instance=ExtResource( 6 )]
 position = Vector2( 825.712, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform28" parent="." instance=ExtResource( 5 )]
+[node name="Platform28" parent="." instance=ExtResource( 6 )]
 position = Vector2( 298.426, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform5" parent="." instance=ExtResource( 5 )]
+[node name="Platform5" parent="." instance=ExtResource( 6 )]
 position = Vector2( 758.922, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform29" parent="." instance=ExtResource( 5 )]
+[node name="Platform29" parent="." instance=ExtResource( 6 )]
 position = Vector2( 231.637, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform14" parent="." instance=ExtResource( 5 )]
+[node name="Platform14" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1022.82, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform26" parent="." instance=ExtResource( 5 )]
+[node name="Platform26" parent="." instance=ExtResource( 6 )]
 position = Vector2( 495.537, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform9" parent="." instance=ExtResource( 5 )]
+[node name="Platform9" parent="." instance=ExtResource( 6 )]
 position = Vector2( 627.787, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform33" parent="." instance=ExtResource( 5 )]
+[node name="Platform33" parent="." instance=ExtResource( 6 )]
 position = Vector2( 100.501, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform18" parent="." instance=ExtResource( 5 )]
+[node name="Platform18" parent="." instance=ExtResource( 6 )]
 position = Vector2( 891.687, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform19" parent="." instance=ExtResource( 5 )]
+[node name="Platform19" parent="." instance=ExtResource( 6 )]
 position = Vector2( 364.401, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform3" parent="." instance=ExtResource( 5 )]
+[node name="Platform3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 659.553, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform32" parent="." instance=ExtResource( 5 )]
+[node name="Platform32" parent="." instance=ExtResource( 6 )]
 position = Vector2( 132.267, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform17" parent="." instance=ExtResource( 5 )]
+[node name="Platform17" parent="." instance=ExtResource( 6 )]
 position = Vector2( 923.453, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform20" parent="." instance=ExtResource( 5 )]
+[node name="Platform20" parent="." instance=ExtResource( 6 )]
 position = Vector2( 396.167, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform10" parent="." instance=ExtResource( 5 )]
+[node name="Platform10" parent="." instance=ExtResource( 6 )]
 position = Vector2( 528.417, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform31" parent="." instance=ExtResource( 5 )]
+[node name="Platform31" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1.13162, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform16" parent="." instance=ExtResource( 5 )]
+[node name="Platform16" parent="." instance=ExtResource( 6 )]
 position = Vector2( 792.317, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform21" parent="." instance=ExtResource( 5 )]
+[node name="Platform21" parent="." instance=ExtResource( 6 )]
 position = Vector2( 265.032, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform6" parent="." instance=ExtResource( 5 )]
+[node name="Platform6" parent="." instance=ExtResource( 6 )]
 position = Vector2( 725.528, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform25" parent="." instance=ExtResource( 5 )]
+[node name="Platform25" parent="." instance=ExtResource( 6 )]
 position = Vector2( 198.242, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform13" parent="." instance=ExtResource( 5 )]
+[node name="Platform13" parent="." instance=ExtResource( 6 )]
 position = Vector2( 989.427, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform23" parent="." instance=ExtResource( 5 )]
+[node name="Platform23" parent="." instance=ExtResource( 6 )]
 position = Vector2( 462.142, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform8" parent="." instance=ExtResource( 5 )]
+[node name="Platform8" parent="." instance=ExtResource( 6 )]
 position = Vector2( 594.392, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform24" parent="." instance=ExtResource( 5 )]
+[node name="Platform24" parent="." instance=ExtResource( 6 )]
 position = Vector2( 67.1066, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform12" parent="." instance=ExtResource( 5 )]
+[node name="Platform12" parent="." instance=ExtResource( 6 )]
 position = Vector2( 858.292, 590.393 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="Platform27" parent="." instance=ExtResource( 5 )]
+[node name="Platform27" parent="." instance=ExtResource( 6 )]
 position = Vector2( 331.006, 590.521 )
 can_sleep = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="txtScore" type="RichTextLabel" parent="."]
+margin_left = 644.0
+margin_top = 10.0
+margin_right = 695.0
+margin_bottom = 64.0
+text = "Score:"
+
+[node name="ScoreBoard" type="RichTextLabel" parent="."]
+margin_left = 689.0
+margin_top = 10.0
+margin_right = 888.0
+margin_bottom = 64.0
 
 [connection signal="timeout" from="mobTimer" to="." method="_on_mobTimer_timeout"]
 [connection signal="timeout" from="startTimer" to="." method="_on_startTimer_timeout"]

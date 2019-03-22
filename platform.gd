@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends StaticBody2D
 
 var plat_types = ["moving", "static", "falling", "hazard"] #types that a platform can be
 
@@ -13,6 +13,7 @@ func _ready():
 	make_static()
 
 func make_static():
+	set_name("platform")
 	$AnimatedSprite.animation = "static"
 	$platformCollision.disabled = false
 

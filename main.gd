@@ -12,15 +12,23 @@ func _ready():
 	new_game()
 	
 func game_over():
+	match(lives):
+		3:
+			$life3.visible = false
+		2:
+			$life2.visible = false
+		1:
+			$life1.visible = false
 	lives = lives-1
+	
 	if(lives==0):
 		$scoreTimer.stop()
 		$mobTimer.stop()
 		print(score)
-		_ready()
 		for child in get_children():
 			if(child is Spike):
 				child.queue_free()
+		_ready()
 	else:
 		for child in get_children():
 			if(child is Spike):
@@ -29,7 +37,11 @@ func game_over():
 
 func new_game():
 	lives = 3
+	$life3.visible = true
+	$life2.visible = true
+	$life1.visible = true
 	score = 0
+	$ScoreBoard.set_text(str(score))
 	$Player.start($startPosition.position)
 	$startTimer.start()
 	$mobTimer.set_wait_time(0.5)
@@ -40,6 +52,7 @@ func _on_startTimer_timeout():
 
 func _on_scoreTimer_timeout():
 	score += 1
+	$ScoreBoard.set_text(str(score))
 	if(score%10==0):
 		$mobTimer.set_wait_time($mobTimer.get_wait_time()-0.05)
 

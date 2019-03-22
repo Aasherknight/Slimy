@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 
 export (int) var speed # how fast the player will move (pixels/sec)
 var screensize # size of the game window
@@ -16,7 +16,6 @@ var screen_bot = 590
 var jumpPower = 9
 var movSpeed = 1
 var maxMovSpeed = 5
-var friction = 0.5
 var grav = 0.25
 
 #Collectables
