@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Spikes.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://art/pipe.png" type="Texture" id=4]
 [ext_resource path="res://platform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://platform.gd" type="Script" id=6]
+[ext_resource path="res://art/jelly.png" type="Texture" id=7]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -315,6 +316,33 @@ script = ExtResource( 6 )
 position = Vector2( 331.006, 590.521 )
 can_sleep = false
 script = ExtResource( 6 )
+
+[node name="life1" type="Sprite" parent="."]
+position = Vector2( 180, 40 )
+texture = ExtResource( 7 )
+
+[node name="life2" type="Sprite" parent="."]
+position = Vector2( 290, 40 )
+texture = ExtResource( 7 )
+
+[node name="life3" type="Sprite" parent="."]
+position = Vector2( 390.001, 40 )
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 602.0
+margin_top = 40.0
+margin_right = 687.0
+margin_bottom = 92.0
+text = "Score:"
+
+[node name="ScoreBoard" type="Label" parent="."]
+margin_left = 644.641
+margin_top = 40.0
+margin_right = 763.641
+margin_bottom = 100.0
+size_flags_stretch_ratio = 0.0
+text = "99999"
 
 [connection signal="timeout" from="mobTimer" to="." method="_on_mobTimer_timeout"]
 [connection signal="timeout" from="startTimer" to="." method="_on_startTimer_timeout"]
